@@ -1,0 +1,257 @@
+$base-color: #0085ff
+$back-color: #1c1c1c
+$content-color: #2e2e2e
+$hover-content: #484848
+
+.reminders
+  &__container
+    background-color: black
+    width: 100vw
+    height: 100vh
+    padding: 20px
+    display: flex
+    flex-direction: column
+    row-gap: 20px
+    position: relative
+    overflow: auto
+    &.active-form
+      overflow: hidden
+      max-height: 100vh
+    & .form
+        &__header
+          width: 100%
+          display: flex
+          justify-content: flex-start
+        &__cancel, &__submit, &__title
+          flex-basis: calc(100%/3)
+          display: flex
+          align-items: center
+        &__cancel, &__submit
+          cursor: pointer
+          color: $base-color
+          &:hover
+            opacity: 0.5
+        &__cancel
+          justify-content: flex-start
+        &__submit
+          justify-content: flex-end
+          &.disable
+            z-index: -1
+            opacity: 0
+        &__title
+          justify-content: center
+          font-weight: normal
+        &__content
+          display: flex
+          flex-direction: column
+          width: 100%
+          overflow: hidden
+          border-radius: 10px
+          background-color: $back-color
+          row-gap: 1px
+        &__new-name,&__new-content,&__container .category__container
+          padding: 20px
+          color: white
+          background-color: $content-color
+        &__new-content
+          min-height: 150px
+          resize: none
+        &__category
+          position: relative
+        &__container .category
+          &__container
+            cursor: pointer
+            border-radius: 10px
+            display: flex
+            justify-content: space-between
+            &:hover
+              background-color: $hover-content
+          &__select
+            display: flex
+            column-gap: 10px
+            color: white
+            align-items: center
+          &__color
+            width: 10px
+            height: 10px
+            border-radius: 50%
+          &__options
+            margin-top: 10px
+            position: absolute
+            display: flex
+            flex-direction: column
+            background-color: $back-color
+            border-radius: 10px
+            border: 1px solid $content-color
+            padding: 10px
+            row-gap: 10px
+            right: 0
+            opacity: 1
+            z-index: 0
+            &.disable
+              opacity: 0
+              z-index: -1
+          &__option
+            font-size: 14px
+            color: white
+            cursor: pointer
+            &:hover
+              color: $base-color
+        &__container .category__container, &__new-content::placeholder, &__new-name::placeholder
+          color: #606060
+          font-size: 14px
+    & .list , & .archive-list
+      &__edit, &__delete, &__archive
+        color: $base-color
+        cursor: pointer
+        &:hover
+          opacity: 0.5
+      &__columns, &__item
+        display: flex
+        padding: 10px 20px
+        border-radius: 10px
+        background-color: $content-color
+      &__column
+        font-size: 14px
+        color: $base-color
+        display: flex
+        &:first-child
+          margin-left: 20px
+      &__items
+        display: flex
+        flex-direction: column
+        row-gap: 20px
+      &__content
+        color: white
+        font-size: 14px
+        line-height: 1.5
+        padding-right: 10px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+      &__item
+        display: flex
+        max-height: 100px
+        cursor: pointer
+        &-control
+          flex-grow: 1
+          display: flex
+          align-items: center
+          justify-content: space-between
+        &.full-size
+          max-height: unset
+        &.full-size .list__content
+          overflow: auto
+          white-space: unset
+        &.full-size .archive-list__content
+          overflow: auto
+          white-space: unset
+        &-category
+          width: 10px
+          height: 10px
+          border-radius: 50%
+          margin-right: 10px
+          &-container
+            display: flex
+            min-width: 20px
+            align-items: center
+        &:hover
+          background-color: $hover-content
+    & .categories
+      &__columns, &__item
+        display: flex
+        padding: 10px 20px
+        border-radius: 10px
+        background-color: $content-color
+      &__show
+        color: $base-color
+        cursor: pointer
+        opacity: 0
+      &__column
+        font-size: 14px
+        color: $base-color
+        display: flex
+        &:first-child
+          margin-left: 20px
+      &__items
+        display: flex
+        flex-direction: column
+        row-gap: 20px
+      &__content
+        color: white
+        font-size: 14px
+        line-height: 1.5
+        padding-right: 10px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+      &__item
+        display: flex
+        max-height: 100px
+        align-items: center
+        &-category
+          width: 10px
+          height: 10px
+          border-radius: 50%
+          margin-right: 10px
+          &-container
+            display: flex
+            min-width: 20px
+            align-items: center
+    & h2
+      color: $base-color
+    & h3
+      color: white
+  &__header
+    width: 100%
+    display: flex
+    justify-content: flex-end
+    .create-button
+      min-width: 30px
+      min-height: 30px
+      background-color: $base-color
+      border-radius: 50%
+      display: flex
+      justify-content: center
+      align-items: center
+      position: relative
+      cursor: pointer
+      border: 2px solid $base-color
+      &:hover
+        background-color: unset
+        & .create-button__line
+          background-color: $base-color
+      &__line
+        width: 16px
+        min-height: 4px
+        background-color: black
+        &:last-child
+          position: absolute
+          transform: rotate(90deg)
+  &__list, &__categories, &__archive
+    display: flex
+    flex-direction: column
+    row-gap: 10px
+    width: 100%
+    padding: 20px
+    border-radius: 10px
+    background-color: $back-color
+  &__form
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px
+    position: fixed
+    top: 20px
+    padding: 20px
+    display: flex
+    flex-direction: column
+    row-gap: 20px
+    width: calc(100vw - 40px)
+    height: calc(100vh - 40px)
+    background-color: $back-color
+    border-radius: 10px
+    z-index: 0
+    opacity: 1
+    &.disable
+      z-index: -1
+      opacity: 0
+      top: 100vw
+      transition: all 0.70s ease 0s
