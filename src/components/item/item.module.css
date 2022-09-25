@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    cursor: pointer;
+}
+.container:hover{
+    background-color: #484848;
+}
+.content{
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-right: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.button{
+    color: #0085FFFF;
+    cursor: pointer;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button:hover{
+    opacity: 0.5;
+}
+.container.fullSize{
+    max-height: unset;
+}
+.fullSize .content{
+    overflow: auto;
+    text-overflow: unset;
+    white-space: unset;
+}

@@ -1,0 +1,11 @@
+.cycle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.container{
+    display: flex;
+    min-width: 20px;
+    align-items: center;
+}

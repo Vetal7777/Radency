@@ -1,0 +1,76 @@
+{
+  "reminders": [
+    {
+      "name": "Shopping list",
+      "created": "April 20, 2021",
+      "category": "Task",
+      "content": "Tomatoes, bread",
+      "dates": "",
+      "id": 2560568208,
+      "archived": false
+    },
+    {
+      "name": "The theory of evolution",
+      "created": "April 27, 2021",
+      "category": "Random Thought",
+      "content": "The theory of evolution",
+      "dates": "",
+      "archived": false,
+      "id": 2461528202
+    },
+    {
+      "name": "New Feature",
+      "created": "May 05, 2021",
+      "category": "Idea",
+      "content": "I’m gonna have a dentist appointment on the 3/5/2021, I moved it from 5/5/2021",
+      "dates": "3/5/2021, 5/5/2021",
+      "archived": false,
+      "id": 8185526591
+    },
+    {
+      "name": "William Gaddis",
+      "created": "May 07, 2021",
+      "category": "Idea",
+      "content": "Power doesn't completed",
+      "dates": "",
+      "id": 1955528298,
+      "archived": false
+    },
+    {
+      "name": "Books",
+      "created": "May 15, 2021",
+      "category": "Task",
+      "content": "The Learn Startup",
+      "dates": "",
+      "archived": false,
+      "id": 5978058237
+    },
+    {
+      "name": "test1",
+      "created": "September 23, 2022",
+      "category": "Random Thought",
+      "content": "12/21/2222",
+      "dates": "12/21/2222",
+      "archived": true,
+      "id": 4741289569
+    },
+    {
+      "name": "dsad",
+      "created": "September 23, 2022",
+      "category": "Idea",
+      "content": "dsad",
+      "dates": "",
+      "archived": true,
+      "id": 2316092775
+    },
+    {
+      "name": "dad",
+      "created": "September 23, 2022",
+      "category": "Random Thought",
+      "content": "dsada",
+      "dates": "",
+      "archived": true,
+      "id": 5644179586
+    }
+  ]
+}

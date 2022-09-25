@@ -1,0 +1,38 @@
+.container {
+  background-color: black;
+  width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+}
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0085ff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+.button:hover{
+  opacity: 0.5;
+}
+.button span{
+  width: 16px;
+  min-height: 4px;
+  background-color: black;
+}
+.button span:first-child{
+  position: absolute;
+  transform: rotate(90deg);
+}

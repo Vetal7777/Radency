@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+}
+h2{
+    color: #0085ff;
+
+}
+.columns{
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+}
+.column{
+    font-size: 14px;
+    color: #0085ff;
+    display: flex;
+}
+.column:first-child{
+    margin-left: 20px;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
