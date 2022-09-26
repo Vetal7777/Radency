@@ -1,4 +1,4 @@
-import FormStateI from "../models/formState";
+import FormStateI from '../models/formState';
 
 const initialState:FormStateI = {
     status: {
@@ -7,10 +7,15 @@ const initialState:FormStateI = {
     },
     defaultState : {
         name: '',
-        content: '',
+        created: '',
         category: '',
+        content: '',
+        dates:'' ,
+        archived: false,
+        id: 0
     },
     state: null,
+    ready: false,
 }
 
 export default initialState;

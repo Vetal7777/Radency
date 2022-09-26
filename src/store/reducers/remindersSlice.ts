@@ -21,6 +21,9 @@ export const reminderSlice = createSlice({
         },
         editSuccess(state,action:PayloadAction<ReminderI>){
             state.reminders = state.reminders.map(reminder => reminder.id === action.payload.id ? action.payload : reminder);
+        },
+        createSuccess(state,action:PayloadAction<ReminderI>){
+            state.reminders = [...state.reminders,action.payload];
         }
     }
 })

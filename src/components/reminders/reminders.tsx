@@ -10,9 +10,14 @@ import categoriesColumns from "../../shared/consts/categories-columns";
 import {categories} from "../../shared/consts/categories";
 import ReminderI from "../../models/reminder";
 import {formSlice} from "../../store/reducers/formSlice";
+import CreateStartButton from "../create-start-button/create-start-button";
+import Form from "../form/form";
 
 export default function Reminders():JSX.Element{
     const dispatch = useDispatch();
+    const showEditForm = useAppSelector(state => state.formSlice.status.edit);
+    const showCreateForm = useAppSelector(state => state.formSlice.status.create) ;
+    const showForm = showCreateForm || showEditForm;
     const reminders = useAppSelector(state => state.reminderSlice.reminders);
     const remindersList = reminders.filter(reminder => !reminder.archived);
     const archiveList = reminders.filter(reminder => reminder.archived);
@@ -33,14 +38,15 @@ export default function Reminders():JSX.Element{
             .catch(error => dispatch(reminderSlice.actions.failed(error.message)))
     },[])
 
-    function onEdit(id:number){
-        console.log('Show Form',id);
+    function onEditClick(id:number){
+        const isEditingReminder = reminders.find(reminder => reminder.id === id);
+        dispatch(formSlice.actions.showEditForm(isEditingReminder as ReminderI))
     }
-    function onArchive(id:number){
+    function onArchiveClick(id:number){
         const archivedReminder = {...reminders.find(reminder => reminder.id === id),archived: true} as ReminderI;
         onPut(archivedReminder);
     }
-    function onUnArchive(id:number){
+    function onUnArchiveClick(id:number){
         const archivedReminder = {...reminders.find(reminder => reminder.id === id),archived: false} as ReminderI;
         onPut(archivedReminder);
     }
@@ -58,51 +64,50 @@ export default function Reminders():JSX.Element{
     }
     return (
         <>
-            <div className={styles.container}>
-                <div className={styles.header}>
-                    <button
-                        className={styles.button}
-                        onClick={() => dispatch(formSlice.actions.showCreateForm)}
-                    >
-                        <span/>
-                        <span/>
-                    </button>
-                </div>
-                <List
-                    title={'Reminders'}
-                    columnsTitles={listColumns}
-                    list={remindersList}
-                    buttons={[
-                        {
-                            title: 'Edit',
-                            submit: onEdit,
-                        },
-                        {
-                            title: 'Archive',
-                            submit: onArchive,
-                        },
-                        {
-                            title: 'Delete',
-                            submit: onDelete,
-                        }
-                    ]}
-                />
-                <List
-                    title={'Categories'}
-                    columnsTitles={categoriesColumns}
-                    list={categoriesList}
-                />
-                <List
-                    title={'Archive'}
-                    columnsTitles={listColumns}
-                    list={archiveList}
-                    buttons={[
-                        {
-                            title: 'Unarchive',
-                            submit: onUnArchive,
-                        },
-                    ]}
-                />
+            <div
+                className={styles.container}
+            >
+                {showForm && <Form/>}
+                        <div className={styles.header}>
+                            <CreateStartButton/>
+                        </div>
+                        <List
+                            title={'Reminders'}
+                            columnsTitles={listColumns}
+                            list={remindersList}
+                            buttons={[
+                                {
+                                    title: 'Edit',
+                                    submit: onEditClick,
+                                },
+                                {
+                                    title: 'Archive',
+                                    submit: onArchiveClick,
+                                },
+                                {
+                                    title: 'Delete',
+                                    submit: onDelete,
+                                }
+                            ]}
+                        />
+                        <List
+                            title={'Categories'}
+                            columnsTitles={categoriesColumns}
+                            list={categoriesList}
+                        />
+                {archiveList.length && (
+                    <List
+                        title={'Archive'}
+                        columnsTitles={listColumns}
+                        list={archiveList}
+                        buttons={[
+                            {
+                                title: 'Unarchive',
+                                submit: onUnArchiveClick,
+                            },
+                        ]}
+                    />
+                )}
             </div>
         </>
     )

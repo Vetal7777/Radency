@@ -5,16 +5,9 @@ interface FormStateI {
         create: boolean,
         edit: boolean,
     },
-    defaultState : {
-        name: string,
-        content: string,
-        category: string,
-    },
-    state: null | ReminderI | {
-        name: string,
-        content: string,
-        category: string,
-    },
+    defaultState : ReminderI,
+    state: null | ReminderI,
+    ready: boolean,
 }
 
 export default FormStateI;

@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    column-gap: 10px;
+    color: white;
+    align-items: center;
+}
+.options{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #1C1C1CFF;
+    border-radius: 10px;
+    border: 1px solid #2E2E2EFF;
+    padding: 10px;
+    row-gap: 10px;
+    right: 0;
+    opacity: 1;
+    z-index: 0;
+    top: 100%;
+    margin-top: 10px;
+}
+.options.disable{
+    opacity: 0;
+    z-index: -1;
+}
+.option{
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
+.option:hover{
+    color: #0085ff;
+}

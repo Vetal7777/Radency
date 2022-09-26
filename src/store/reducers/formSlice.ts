@@ -11,9 +11,15 @@ export const formSlice = createSlice({
             state.state = state.defaultState;
         },
         showEditForm(state,action:PayloadAction<ReminderI>){
-            state.status.create = true;
+            state.status.edit = true;
             state.state = action.payload;
         },
+        hideForm(state){
+            state.status.create = false;
+            state.status.edit = false;
+            state.ready = false;
+            state.state = null;
+        }
     }
 })
 

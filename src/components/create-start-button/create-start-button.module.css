@@ -1,0 +1,23 @@
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0085ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+.button:hover{
+    opacity: 0.5;
+}
+.line{
+    width: 16px;
+    min-height: 4px;
+    background-color: black;
+}
+.line:first-child{
+    position: absolute;
+    transform: rotate(90deg);
+}

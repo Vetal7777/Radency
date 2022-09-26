@@ -1,0 +1,92 @@
+.container{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+    background-color: #1C1C1CFF;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 2;
+    animation-name: showForm;
+    animation-duration: 0.4s;
+    animation-iteration-count: unset;
+    top: 20px;
+}
+.hide{
+    top: 100vh;
+}
+@keyframes showForm {
+    from{
+        top: 100vh;
+    }
+    to{
+        top: 20px
+    }
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.title{
+    color: white;
+    flex-basis: calc(100%/3);
+    display: flex;
+    justify-content: center;
+}
+.header .button:last-child{
+    justify-content: flex-end;
+}
+.button.disable{
+    opacity: 0;
+    z-index: -1;
+}
+.button{
+    flex-basis: calc(100%/3);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #0085ff;
+}
+.button:hover{
+    opacity: 0.5;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #1C1C1CFF;
+    row-gap: 1px;
+}
+.content input,
+.content textarea,
+.category{
+    padding: 20px;
+    color: white;
+    background-color: #2E2E2EFF;
+}
+.content textarea{
+    min-height: 150px;
+    resize: none;
+}
+.category ,
+.content textarea::placeholder,
+.content input::placeholder{
+    color: #606060;
+    font-size: 14px;
+}
+.category{
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.category:hover {
+    background-color: #484848FF;
+}

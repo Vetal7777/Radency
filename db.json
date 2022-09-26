@@ -34,7 +34,7 @@
       "content": "Power doesn't completed",
       "dates": "",
       "id": 1955528298,
-      "archived": false
+      "archived": true
     },
     {
       "name": "Books",
@@ -42,35 +42,8 @@
       "category": "Task",
       "content": "The Learn Startup",
       "dates": "",
-      "archived": false,
+      "archived": true,
       "id": 5978058237
-    },
-    {
-      "name": "test1",
-      "created": "September 23, 2022",
-      "category": "Random Thought",
-      "content": "12/21/2222",
-      "dates": "12/21/2222",
-      "archived": true,
-      "id": 4741289569
-    },
-    {
-      "name": "dsad",
-      "created": "September 23, 2022",
-      "category": "Idea",
-      "content": "dsad",
-      "dates": "",
-      "archived": true,
-      "id": 2316092775
-    },
-    {
-      "name": "dad",
-      "created": "September 23, 2022",
-      "category": "Random Thought",
-      "content": "dsada",
-      "dates": "",
-      "archived": true,
-      "id": 5644179586
     }
   ]
 }
