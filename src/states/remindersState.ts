@@ -2,7 +2,7 @@ import {IRemindersState} from "../models/remindersState";
 
 const initialState:IRemindersState = {
     reminders: [],
-    isLoading: false,
+    isLoading: true,
     error: null,
 }
 

@@ -7,9 +7,15 @@
   flex-direction: column;
   row-gap: 20px;
   padding: 20px;
+  position: relative;
 }
 .header{
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+.skeleton{
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
 }

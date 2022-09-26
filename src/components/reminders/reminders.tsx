@@ -12,9 +12,14 @@ import ReminderI from "../../models/reminder";
 import {formSlice} from "../../store/reducers/formSlice";
 import CreateStartButton from "../create-start-button/create-start-button";
 import Form from "../form/form";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import ErrorMessage from "../error-message/error-message";
 
 export default function Reminders():JSX.Element{
     const dispatch = useDispatch();
+    const error = useAppSelector(state => state.reminderSlice.error);
+    const isLoading = useAppSelector(state => state.reminderSlice.isLoading);
     const showEditForm = useAppSelector(state => state.formSlice.status.edit);
     const showCreateForm = useAppSelector(state => state.formSlice.status.create) ;
     const showForm = showCreateForm || showEditForm;
@@ -32,7 +37,6 @@ export default function Reminders():JSX.Element{
         });
 
     useEffect(() => {
-        dispatch(reminderSlice.actions.fetch);
         API.get('')
             .then(response => dispatch(reminderSlice.actions.getSuccess(response.data)))
             .catch(error => dispatch(reminderSlice.actions.failed(error.message)))
@@ -67,7 +71,10 @@ export default function Reminders():JSX.Element{
             <div
                 className={styles.container}
             >
-                {showForm && <Form/>}
+                {error && <ErrorMessage/>}
+                {!isLoading && !error && (
+                    <>
+                        {showForm && <Form/>}
                         <div className={styles.header}>
                             <CreateStartButton/>
                         </div>
@@ -95,18 +102,35 @@ export default function Reminders():JSX.Element{
                             columnsTitles={categoriesColumns}
                             list={categoriesList}
                         />
-                {archiveList.length && (
-                    <List
-                        title={'Archive'}
-                        columnsTitles={listColumns}
-                        list={archiveList}
-                        buttons={[
-                            {
-                                title: 'Unarchive',
-                                submit: onUnArchiveClick,
-                            },
-                        ]}
-                    />
+                        {archiveList.length && (
+                            <List
+                                title={'Archive'}
+                                columnsTitles={listColumns}
+                                list={archiveList}
+                                buttons={[
+                                    {
+                                        title: 'Unarchive',
+                                        submit: onUnArchiveClick,
+                                    },
+                                ]}
+                            />
+                        )}
+                    </>
+                )}
+                {isLoading && (
+                        <SkeletonTheme
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={300}
+                            borderRadius={15}
+                        >
+                            <p>
+                                <Skeleton
+                                    containerClassName={styles.skeleton}
+                                    count={3}
+                                />
+                            </p>
+                        </SkeletonTheme>
                 )}
             </div>
         </>

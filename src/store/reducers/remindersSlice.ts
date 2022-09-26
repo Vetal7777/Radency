@@ -14,15 +14,23 @@ export const reminderSlice = createSlice({
             state.error = action.payload;
         },
         getSuccess(state,action:PayloadAction<ReminderI[]>){
+            state.isLoading = false;
+            state.error = null;
             state.reminders = action.payload;
         },
         deleteSuccess(state,action:PayloadAction<number>){
+            state.isLoading = false;
+            state.error = null;
             state.reminders = state.reminders.filter(reminder => reminder.id !== action.payload);
         },
         editSuccess(state,action:PayloadAction<ReminderI>){
+            state.isLoading = false;
+            state.error = null;
             state.reminders = state.reminders.map(reminder => reminder.id === action.payload.id ? action.payload : reminder);
         },
         createSuccess(state,action:PayloadAction<ReminderI>){
+            state.isLoading = false;
+            state.error = null;
             state.reminders = [...state.reminders,action.payload];
         }
     }

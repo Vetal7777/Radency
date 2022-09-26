@@ -8,7 +8,7 @@ const initialState:FormStateI = {
     defaultState : {
         name: '',
         created: '',
-        category: '',
+        category: 'Task',
         content: '',
         dates:'' ,
         archived: false,
